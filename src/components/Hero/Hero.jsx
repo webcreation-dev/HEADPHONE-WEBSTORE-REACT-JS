@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaWhatsapp } from 'react-icons/fa'
 import Headphone1 from  '../../assets/headphones/headphone.png'
 import Headphone2 from  '../../assets/headphones/headphone-2.png'
 import Headphone3 from  '../../assets/headphones/headphone-3.png'
@@ -37,15 +38,19 @@ const Hero = () => {
 
     const [activeData, setActiveData] = React.useState(HeadphoneData[0])
 
+    const handleActiveData = (data) => {   
+        setActiveData(data)
+    }
+
   return (
     <>
         <section className='bg-brandDark text-white font-varela'>
             
             <div className='container grid grid-cols-1 
-            md:grid-cols-1 min-h-[700px]'>
+            md:grid-cols-2 min-h-[700px]'> 
                 
                 {/* ________ Headphone Info ________ */}
-                <div className='flex flex-col justify-center py-14 md:py-0
+                <div className='flex flex-col justify-center py-14 md:py-0 
                 xl:max-w-[500px]' >
 
                     <div className='space-y-5 text-center md:text-left' >
@@ -69,7 +74,10 @@ const Hero = () => {
                         <div className='grid grid-cols-3 gap-10'>
                             {HeadphoneData.map((item) => {
                                 return (
-                                    <div className='grid grid-cols-2 place-items-center cursor-pointer' >
+                                    <div 
+                                    key={item.id}
+                                    onClick={() => handleActiveData(item)}
+                                    className='grid grid-cols-2 place-items-center cursor-pointer' >
                                         <div>
                                             <img src={item.image} alt="" 
                                             className='w-[200px]'/>
@@ -92,7 +100,15 @@ const Hero = () => {
 
                 {/* ________ Hero Image ________ */}
 
+                <div className='flex flex-col justify-end items-center' >
+                    <img src={ activeData.image } alt=""
+                    className='w-[300px] md:w-[400px] xl:w-[550px]' />
+                </div>
+
                 {/* ________ WhatsApp Icon ________ */}
+
+                <FaWhatsapp className='text-3xl text-white fixed bottom-10 right-10
+                hover:rotate-[360deg] duration-500 z-[99999] mix-blend-difference' />
             </div>
 
         </section>
