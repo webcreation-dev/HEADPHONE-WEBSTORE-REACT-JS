@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar/Navbar'
 import { UpdateFollower } from 'react-mouse-follower'
+import Hero from './components/Hero/Hero'
 
 const App = () => {
   return (
@@ -17,7 +18,10 @@ const App = () => {
       >
         
         <Navbar />
+        <Hero />
       </UpdateFollower>
+
+      
     </main>
 
   )
