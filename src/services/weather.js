@@ -8,7 +8,7 @@ export const getWeather = async (city) => {
 
     const response = await axiosInstance.get(`weather?q=${city}&units=metric&appid=${api.key}`);
 
-    await delay(2000); 
+    await delay(500); 
 
     return response.data;
 

@@ -19,10 +19,10 @@ const WeatherForm = ({ onSubmit }) => {
   };
 
   return (
+
     <form onSubmit={handleSubmit(submitHandler)}>
       <div>
-        <label htmlFor="city">Entrez le nom de la ville</label>
-        <br />
+        <label htmlFor="city">Villes</label>
         <input id="city" {...register('city')} />
         {errors.city && <p>{errors.city.message}</p>}
       </div>

@@ -6,21 +6,23 @@ const WeatherResult = ({ weatherData }) => {
   
   if (!weatherData) {
     return (
-      <div>
-        <h2>Aucun élément retrouvé</h2>
+      <div className="not_found">
       </div>
     );
   }
 
   return (
-    <div className="weather-details">
-      <h2>Longitude : <span>{weatherData.coord.lon}</span></h2>
-      <h2>Latitude: <span>{weatherData.coord.lat}</span> </h2>
+    <>
+      <p>Longitude : <span>{weatherData.coord.lon}</span></p>
+      <p>Latitude: <span>{weatherData.coord.lat}</span> </p>
+      <p> Température : <span> {weatherData.main.temp} °C</span> </p>
 
-    <hr />
-      <h2>Temperature : <span>{weatherData.main.temp} °C</span> </h2>
-      <h2>Indicatif : <span>{weatherData.sys.country} </span> </h2>
-    </div>
+      <p> Humidité : <span> {weatherData.main.humidity} %</span> </p>
+      <p> Vent : <span>  {weatherData.wind.speed} m/s</span> </p>
+      <p> Pression : <span>  {weatherData.main.pressure} mbar</span> </p>
+      <p> Visibilité : <span>  {weatherData.visibility} m</span> </p>
+      <p> Couverture nuageuse : <span> {weatherData.clouds.all} % </span> </p>
+    </>
     
   );
 };
